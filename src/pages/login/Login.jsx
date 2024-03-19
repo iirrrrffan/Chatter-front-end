@@ -1,9 +1,38 @@
-import React from 'react'
+import {useRef} from 'react'
 import './login.css'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import axios from 'axios';
 
 
 const Login = () => {
+  const router =useNavigate()
+  const EmailRef=useRef(null);
+  const passwordRef=useRef(null)
+
+
+  const handleLogin = async(e)=>{
+    e.preventDefault();
+    const inputEmail=EmailRef.current.value;
+    const inputPassword=passwordRef.current.value;
+    try{
+      const data={
+        email:inputEmail,
+        password:inputPassword
+      }
+      console.log(data)
+  
+      const response = await axios.post('http://localhost:3006/api/auth/login',data)
+      console.log(response)
+      if(response.status===200){
+        router('/home')
+      }
+      
+    }catch(error){
+      console.log(error,"login error");
+    }
+  }
+ 
+
   return (
     <div className="login">
     <div className="loginWrapper">
@@ -18,6 +47,7 @@ const Login = () => {
           <input
             placeholder="Email"
             type="email"
+            ref={EmailRef}
             required
             className="loginInput"
            
@@ -26,24 +56,17 @@ const Login = () => {
             placeholder="Password"
             type="password"
             required
+            ref={passwordRef}
             minLength="6"
             className="loginInput"
            
           />
-          <button className="loginButton" type="submit" > Login
-            {/* {isFetching ? (
-              <CircularProgress color="white" size="20px" />
-            ) : (
-              "Log In"
-            )} */}
+          <button className="loginButton" onClick={handleLogin} > Login
+          
           </button>
           <Link to={"/sign"}>
           <button className="loginRegisterButton"> Sing in
-            {/* {isFetching ? (
-              <CircularProgress color="white" size="20px" />
-            ) : (
-              "Create a New Account"
-            )} */}
+          
           </button>
           </Link>
         </form>
