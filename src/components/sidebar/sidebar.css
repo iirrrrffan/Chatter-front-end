@@ -35,6 +35,12 @@
 .sidebarIcon {
   margin-right: 15px;
 }
-
-
+.profileIcon{
+  margin-top: 320px;
+  margin-right: 15px;
+  
+}
+.sidebarIcon:hover{
+  background-color: rgba(144, 141, 141, 0.292);
+} 
 

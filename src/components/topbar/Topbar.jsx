@@ -1,6 +1,5 @@
 import React from 'react'
 import "./topbar.css";
-import SearchIcon from '@mui/icons-material/Search';
 import { Link } from "react-router-dom";
 
 
@@ -14,14 +13,6 @@ const Topbar = () => {
         </Link>
       </div>
       <div className="topbarCenter">
-        <div className="searchbar">
-        
-          <SearchIcon/>
-          <input
-            placeholder="Search friends"
-            className="searchInput"
-          />
-        </div>
       </div>
       <div className="topbarRight">
       </div>

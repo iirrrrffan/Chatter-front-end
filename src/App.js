@@ -5,6 +5,7 @@ import Home from './pages/home/Home';
 import Login from './pages/login/Login';
 import Regi from './pages/regi/Regi';
 import { createContext } from 'react';
+import Messanger from './pages/messanger/Messanger';
 
 
 export const userLogin=createContext()
@@ -16,6 +17,7 @@ function App() {
 <Route path='/' element={<Login/>} />
 <Route path='/sign' element={<Regi/>}/>
 <Route path='/home' element={<Home/>}/>
+<Route path='/messanger' element={<Messanger/>}/>
 
     </Routes>
     </div>
