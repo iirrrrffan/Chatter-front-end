@@ -4,7 +4,7 @@ const Conversation = () => {
   return (
     <>
     <div className="conversation">
-    
+     
     <span className="conversationName"></span>
   </div>
   </>

@@ -31,9 +31,9 @@ import { Link } from 'react-router-dom';
           </li>
           <div className='feed'>
             <div className='feedWrapper'>
-
             </div>
           </div>
+          
            {/* <li className="feed">
             < AccountCircleIcon className="profileIcon" />
             <span className="sidebarListItemText">Profile</span>
