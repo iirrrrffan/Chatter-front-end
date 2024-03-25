@@ -3,11 +3,14 @@ import Topbar from '../../components/topbar/Topbar'
 import Conversation from '../../components/conversation/Conversation'
 import Message from '../../components/message/Message'
 import "./Messanger.css"
+import ChatOnline from '../../components/chatOnline/ChatOnline'
+
 const Messanger = () => {
   return (
     
     <>
     <Topbar/>
+    
     <div className="messenger">
       <div className="chatMenu">
         <div className="chatMenuWrapper">
@@ -47,7 +50,7 @@ const Messanger = () => {
       </div>
       <div className="chatOnline">
         <div className="chatOnlineWrapper">
-          
+          <ChatOnline/>
         </div>
       </div>
     </div>

@@ -1,0 +1,27 @@
+.main{
+    position: relative;
+}
+.child{
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    height: 2.25rem;
+    width: 2.25rem; 
+    border-radius: 9999px; 
+    height: 2.5rem; 
+    width: 2.5rem;
+    outline: 1px solid;
+    outline-color: black
+}
+.spn{
+    position: absolute;
+    bottom: 0.25rem;
+    left: 1.5rem;
+    width: 1rem;
+    height: 1rem;
+    background-color: #34D399;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #374151;
+    border-radius: 9999px; 
+}

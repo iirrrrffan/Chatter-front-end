@@ -1,4 +1,4 @@
-import {useRef} from 'react'
+import {useRef, useState} from 'react'
 import './login.css'
 import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios';
@@ -8,12 +8,18 @@ const Login = () => {
   const router =useNavigate()
   const EmailRef=useRef(null);
   const passwordRef=useRef(null)
-
+  const [error, setError] = useState(null);
 
   const handleLogin = async(e)=>{
     e.preventDefault();
     const inputEmail=EmailRef.current.value;
     const inputPassword=passwordRef.current.value;
+
+    if (!inputEmail || !inputPassword) {
+      setError("Please fill out all fields.");
+      return;
+    }
+
     try{
       const data={
         email:inputEmail,
@@ -24,6 +30,7 @@ const Login = () => {
       const response = await axios.post('http://localhost:3006/api/auth/login',data)
       console.log(response)
       if(response.status===200){
+        localStorage.setItem("user",JSON.stringify(response.data))
         router('/home')
       }
       
@@ -61,6 +68,7 @@ const Login = () => {
             className="loginInput"
            
           />
+           {error && <p className="error">{error}</p>}
           <button className="loginButton" onClick={handleLogin} > Login
           
           </button>

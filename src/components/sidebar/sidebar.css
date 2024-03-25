@@ -34,13 +34,30 @@
 
 .sidebarIcon {
   margin-right: 15px;
+  color: gray;
+  transition: transform 0.3s ease; 
 }
-.profileIcon{
-  margin-top: 320px;
-  margin-right: 15px;
-  
+.sidebarIcon:hover {
+  transform: scale(1.1);
+  color: black; 
 }
-.sidebarIcon:hover{
-  background-color: rgba(144, 141, 141, 0.292);
-} 
+
+.sidebarButton {
+  width: 150px;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: 500;
+}
+
+.sidebarHr {
+  margin: 20px 0;
+}
+
+.sidebarFriendList {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
 
