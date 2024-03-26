@@ -1,27 +1,86 @@
-.main{
+.profile{
+    display: flex;
+}
+
+.profileRight{
+    flex: 9;
+}
+
+.profileCover{
+    height: 350px;
     position: relative;
 }
-.child{
-    position: relative;
-    display: inline-block;
-    overflow: hidden;
-    height: 2.25rem;
-    width: 2.25rem; 
-    border-radius: 9999px; 
-    height: 2.5rem; 
-    width: 2.5rem;
-    outline: 1px solid;
-    outline-color: black
+
+.profileCoverImg{
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
 }
-.spn{
+
+.profileUserImg{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
     position: absolute;
-    bottom: 0.25rem;
-    left: 1.5rem;
-    width: 1rem;
-    height: 1rem;
-    background-color: #34D399;
-    border-width: 2px;
-    border-style: solid;
-    border-color: #374151;
-    border-radius: 9999px; 
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: 150px;
+    border: 3px solid white;
+}
+
+.profileInfo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.profileInfoName{
+    font-size: 30px;
+}
+
+.profileRightBottom{
+    display: flex;
+}
+.input{
+    background-color:silver;
+    margin-top: 10px;
+    border: 2px solid #555; /* Adding a border */
+        border-radius: 8px; /* Adding rounded corners */
+        padding: 10px; /* Adding padding */
+        width: 200px; /* Setting width */
+        font-size: 16px; /* Setting font size */
+        color: #333; /* Setting text color */
+        outline: none;
+}
+.input:focus {
+    border-color: dodgerblue; 
+}
+
+.email{
+    margin-top: 30px;
+    text-align: center;
+}
+
+
+.btn {
+    margin-left: 700px;
+    background-color: rgb(79, 151, 187);
+    position: relative;
+    bottom: 40px;
+    color: aliceblue;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+.btn:hover {
+    background-color: rgb(63, 127, 160);
+    cursor: pointer;
 }

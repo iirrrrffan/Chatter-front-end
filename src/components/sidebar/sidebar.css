@@ -31,6 +31,7 @@
 }
 
 .sidebarIcon {
+  position: relative;
   margin-right: 15px;
   color: gray;
   transition: transform 0.3s ease; 
@@ -40,6 +41,7 @@
   transform: scale(1.1);
   color: black; 
 }
+
 
 /* Added link styles */
 .link {

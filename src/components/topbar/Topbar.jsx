@@ -8,7 +8,7 @@ const Topbar = () => {
   return (
     <div className="topbarContainer">
  <div className="topbarLeft">
-        <Link to="/" style={{ textDecoration: "none" }}>
+        <Link to="/home" style={{ textDecoration: "none" }}>
           <span className="logo">Chatter</span>
         </Link>
       </div>

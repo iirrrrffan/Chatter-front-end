@@ -1,6 +1,5 @@
 import React from 'react';
 import ChatIcon from '@mui/icons-material/Chat';
-import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
 import Diversity3Icon from '@mui/icons-material/Diversity3';
 import LogoutIcon from '@mui/icons-material/Logout';
 import { Link, useNavigate } from 'react-router-dom';
@@ -18,16 +17,17 @@ const Sidebar = () => {
     <div className='sidebar'>
       <div className="sidebarWrapper">
         <div className="sidebarList">
-            <div className="sidebarListItem">
+          <div className="sidebarListItem" >
             <Link to={"/messanger"} className="link">
               <ChatIcon className="sidebarIcon" />
-              </Link>
-            </div>
-            
+            </Link>
+          </div>
+          
           <div className="sidebarListItem" onClick={handleLogout}>
             <LogoutIcon className="sidebarIcon" />
           </div>
-          <div className="sidebarListItem">
+          
+          <div className="sidebarListItem" >
             <Diversity3Icon className="sidebarIcon" />
           </div>
         </div>
