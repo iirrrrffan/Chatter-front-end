@@ -4,15 +4,19 @@ import Conversation from '../../components/conversation/Conversation'
 import Message from '../../components/message/Message'
 import "./Messanger.css"
 import ChatOnline from '../../components/chatOnline/ChatOnline'
+import Sidebar from '../../components/sidebar/Sidebar'
 
 const Messanger = () => {
   return (
     
     <>
     <Topbar/>
-    
+    <div style={{display:"flex"}}>
+      <div> <Sidebar/></div>
+   
+   
     <div className="messenger">
-      <div className="chatMenu">
+      <div className="chatMenu" style={{width:"35%", flex:"none"}}>
         <div className="chatMenuWrapper">
           <input placeholder="Search for friends" className="chatMenuInput" />
             <div>
@@ -20,7 +24,7 @@ const Messanger = () => {
             </div>
         </div>
       </div>
-      <div className="chatBox">
+      <div className="chatBox" style={{ width:"940px"}}>
         <div className="chatBoxWrapper">
          
             <>
@@ -41,18 +45,11 @@ const Messanger = () => {
                 </button>
               </div>
             </>
-         
             <span className="noConversationText">
-              
             </span>
-        
         </div>
       </div>
-      <div className="chatOnline">
-        <div className="chatOnlineWrapper">
-          <ChatOnline/>
-        </div>
-      </div>
+    </div>
     </div>
   </>
   )

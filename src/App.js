@@ -1,6 +1,6 @@
 
 import { Route, Routes } from 'react-router-dom';
-// import './App.css';
+import './App.css';
 import Home from './pages/home/Home';
 import Login from './pages/login/Login';
 import Regi from './pages/regi/Regi';
@@ -12,6 +12,7 @@ import CloseFriend from './components/closeFriend/CloseFriend.jsx';
 import Online from './components/online/Online.jsx';
 import Post from './components/post/Post.jsx';
 import Share from './components/share/Share.jsx';
+import Conversation from './components/conversation/Conversation.jsx';
 
 
 
@@ -32,6 +33,7 @@ function App() {
 <Route path='/online' element={<Online/>}/>
 <Route path='/post' element={<Post/>}/>
 <Route path='/share' element={<Share/>}/>
+<Route path='/people' element={<Conversation/>}/>
     </Routes>
     </div>
   );
