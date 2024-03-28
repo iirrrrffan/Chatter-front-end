@@ -2,6 +2,7 @@ import React from 'react';
 import "./editProfile.css"
 
 const EditProfile = () => {
+
   return (
     <form className="form-container">
       <div>
@@ -20,13 +21,7 @@ const EditProfile = () => {
           name="email"
         />
       </div>
-      <div>
-        <label htmlFor="bio">Bio:</label>
-        <textarea
-          id="bio"
-          name="bio"
-        />
-      </div>
+     
       <button type="submit">Save</button>
     </form>
   );
