@@ -10,9 +10,9 @@ import Profile from './pages/profile/Profile';
 import ChatOnline from './components/chatOnline/ChatOnline';
 import CloseFriend from './components/closeFriend/CloseFriend.jsx';
 import Online from './components/online/Online.jsx';
-import Post from './components/post/Post.jsx';
 import Share from './components/share/Share.jsx';
 import Conversation from './components/conversation/Conversation.jsx';
+import EditProfile from './components/editProfile/EditProfile.jsx';
 
 
 
@@ -31,9 +31,9 @@ function App() {
 <Route path='/chat' element={<ChatOnline/>}/> 
 <Route path='/close' element={<CloseFriend/>}/>
 <Route path='/online' element={<Online/>}/>
-<Route path='/post' element={<Post/>}/>
 <Route path='/share' element={<Share/>}/>
 <Route path='/people' element={<Conversation/>}/>
+<Route path='/editprofile' element={<EditProfile/>}/>
     </Routes>
     </div>
   );

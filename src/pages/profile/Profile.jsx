@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import "./profile.css";
 import Topbar from '../../components/topbar/Topbar';
 import Sidebar from '../../components/sidebar/Sidebar';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const Profile = () => {
@@ -64,16 +64,15 @@ const Profile = () => {
               />
             </div>
             <div className="profileInfo">
-              <h2 className="profileInfoName">Edit profile information </h2>
-              <div>
-                {user && <input className='input' placeholder='name' value={user.username} onChange={(e) => setUsername(e.target.value)} />}
-              </div>
+            <h2 className="profileInfoName">{user ?.username}</h2>
               <div className='email'>
                 <h1>Email</h1>
                 {user && <h1>{user.email}</h1>}
               </div>
               <div>
-                <button className='btn'>Save</button>
+                <Link to={"/editprofile"}>
+                <button className='btn'>Edit</button>
+                </Link>
               </div>
             </div>
           </div>

@@ -31,7 +31,7 @@ useEffect(()=>{
     <Topbar/>
     <div className='homeContainer'>
     <Sidebar/>
-    <Feed/>
+    {/* <Feed/> */}
     <Rightbar/>
     </div>
     </div>

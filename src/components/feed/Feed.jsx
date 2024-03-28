@@ -1,6 +1,6 @@
 import React from 'react'
 import Share from '../share/Share'
-import Post from '../post/Post'
+
 import "./feed.css"
 
 const Feed = () => {
@@ -9,7 +9,6 @@ const Feed = () => {
     <div className="feedWrapper">
        {/* <Share /> */}
       
-        {/* <Post/> */}
       
     </div>
   </div>

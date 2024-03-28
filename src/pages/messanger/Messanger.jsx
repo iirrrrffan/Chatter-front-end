@@ -32,7 +32,7 @@ useEffect(()=>{
    
    
     <div className="messenger">
-      <div className="chatMenu" style={{width:"35%", flex:"none"}}>
+      <div className="chatMenu" style={{width:"30%", flex:"none"}}>
         <div className="chatMenuWrapper">
           <input placeholder="Search for friends" className="chatMenuInput" />
             <div>
