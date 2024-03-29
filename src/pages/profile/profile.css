@@ -62,8 +62,11 @@
 }
 
 .email{
-    margin-top: 30px;
+    margin-top: 15x;
     text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content; 
 }
 
 

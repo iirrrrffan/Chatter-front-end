@@ -11,6 +11,7 @@ const Profile = () => {
   const [username, setUsername] = useState(''); 
   const [email, setEmail] = useState('');
   const [profilePic, setProfilePic] = useState(null);
+  
 
   useEffect(() => {
     const storedUser = window.localStorage.getItem("user");
@@ -65,8 +66,10 @@ const Profile = () => {
             </div>
             <div className="profileInfo">
             <h2 className="profileInfoName">{user ?.username}</h2>
+            <h1 style={{fontSize:20}}>following 3</h1>
+            <h1 style={{fontSize:20}}>followers 5</h1>
               <div className='email'>
-                <h1>Email</h1>
+                <h1 style={{fontFamily:'Arial',fontSize:30}}>Email</h1>
                 {user && <h1>{user.email}</h1>}
               </div>
               <div>
