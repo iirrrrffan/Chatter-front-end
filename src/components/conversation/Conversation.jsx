@@ -1,15 +1,38 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import "./conversation.css"
-const Conversation = () => {
+import axios from 'axios'
+import { useParams } from 'react-router-dom'
+
+const Conversation = ({conversation,currentUser}) => {
+const [state,setState]=useState()
+const [user,setUser]=useState(null)
+const userId = useParams()
+                     
+useEffect(() => {
+  const friendId = conversation.members.find(m => m !== currentUser._id); // Find the friend's ID
+  const getUser = async () => {
+    try {
+      const res = await axios.get(`http://localhost:3006/api/users/${friendId}`); // Use friendId instead of userId
+      setUser(res.data.user)
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  getUser();
+}, [currentUser, conversation]);
+if (!user) {
+  return <div>Loading...</div>;
+}
+
   return (
     
     <div className="conversation" style={{display:"flex"}}>
       <img
         className="conversationImg"
-        src="https://i.pinimg.com/564x/6a/fc/5c/6afc5c43a5050054d7482202e3b75239.jpg"
+        src={user.profilePicture}
         alt=""
       />
-      <span className="conversationName">irfan</span>
+      <span className="conversationName">{user.username}</span>
     </div>
     
   )
