@@ -10,8 +10,8 @@ const Profile = () => {
   const [user, setUser] = useState(null);
   const [username, setUsername] = useState(''); 
   const [email, setEmail] = useState('');
-  const [profilePic, setProfilePic] = useState(null);
-  
+  const [profilePicture, setProfilePicture] = useState([]);
+  const [coverPicture, setCoverPicture] = useState([]);
 
   useEffect(() => {
     const storedUser = window.localStorage.getItem("user");
@@ -28,17 +28,18 @@ const Profile = () => {
   }, []);
 
   const fetchProfile = async () => {
-    console.log("jjj")
+    
     try {
       if (user?._id) { 
         const response = await axios.get(`http://localhost:3006/api/users/${user._id}`);
-        console.log(response, "wertfgyh");
+       console.log(response);
         if (response.status === 200) {
           setUsername(response.data.user.username);
           setEmail(response.data.user.email);
-          setProfilePic(response.data.user.profilePic);
+          setProfilePicture(response.data.user.profilePicture);
+          setCoverPicture(response.data.user.coverPicture);
         }
-        console.log(setEmail)
+      
       }
     } catch (error) {
       console.log('Error fetching user profile:', error);
@@ -53,14 +54,15 @@ const Profile = () => {
         <div className="profileRight">
           <div className="profileRightTop">
             <div className="profileCover">
-              <img
-                className="profileCoverImg"
-                src="https://i.pinimg.com/564x/10/06/8e/10068e23be71b95ed0a1a4d25a57f4d2.jpg"
-                alt=""
-              />
+            <img
+  className="profileCoverImg"
+  src={user?.coverPicture}
+  alt=""
+/>
+
               <img
                 className="profileUserImg"
-                src="https://i.pinimg.com/564x/45/c4/6c/45c46ce18a62cd986e90ebf0c8b75557.jpg"
+                src={user?.profilePicture}
                 alt=""
               />
             </div>

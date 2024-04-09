@@ -22,7 +22,9 @@ export const userLogin=createContext()
 function App() {
   return (
     <div className="App bg-black w-full h-auto flex flex-col ">
+      
     <Routes>
+
 <Route path='/' element={<Login/>} />
 <Route path='/sign' element={<Regi/>}/>
 <Route path='/home' element={<Home/>}/>
@@ -36,6 +38,7 @@ function App() {
 <Route path='/editprofile' element={<EditProfile/>}/>
     </Routes>
     </div>
+
   );
 }
 

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import "./conversation.css"
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
+import { useSocketContext } from '../../context/socketContext'
 
 const Conversation = ({conversation,currentUser}) => {
 const [state,setState]=useState()
@@ -23,15 +24,19 @@ useEffect(() => {
 if (!user) {
   return <div>Loading...</div>;
 }
+const {onlineUsers} = useSocketContext();
+const isOnline = onlineUsers.includes(conversation._id)
 
   return (
     
     <div className="conversation" style={{display:"flex"}}>
+      <div className={`avatar ${isOnline ? "online" : ""}`}>
       <img
         className="conversationImg"
         src={user.profilePicture}
         alt=""
       />
+      </div>
       <span className="conversationName">{user.username}</span>
     </div>
     

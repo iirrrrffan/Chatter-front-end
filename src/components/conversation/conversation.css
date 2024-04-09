@@ -11,6 +11,22 @@
   background-color: rgb(179, 171, 171);
 }
 
+.avatar {
+  position: relative;
+  display: inline-block;
+}
+
+.avatar.online::after {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: green;
+  border-radius: 50%;
+  bottom: 0;
+  right: 0;
+}
+
 .conversationImg {
   width: 40px;
   height: 40px;
