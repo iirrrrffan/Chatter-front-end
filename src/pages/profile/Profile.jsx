@@ -48,7 +48,7 @@ const Profile = () => {
 
   return (
     <>
-      <Topbar />
+      {/* <Topbar /> */}
       <div className="profile">
         <Sidebar />
         <div className="profileRight">

@@ -21,7 +21,22 @@ const EditProfile = () => {
           name="email"
         />
       </div>
-     
+      <div>
+        <label htmlFor="profilePic">Profile Picture:</label>
+        <input
+          type="file"
+          id="profilePic"
+          name="profilePic"
+        />
+      </div>
+      <div>
+        <label htmlFor="coverPhoto">Cover Photo:</label>
+        <input
+          type="file"
+          id="coverPhoto"
+          name="coverPhoto"
+        />
+      </div>
       <button type="submit">Save</button>
     </form>
   );

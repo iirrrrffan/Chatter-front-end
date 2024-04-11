@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import "./conversation.css"
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
-import { useSocketContext } from '../../context/socketContext'
 
 const Conversation = ({conversation,currentUser}) => {
 const [state,setState]=useState()
@@ -15,6 +14,7 @@ useEffect(() => {
     try {
       const res = await axios.get(`http://localhost:3006/api/users/${friendId}`); // Use friendId instead of userId
       setUser(res.data.user)
+      console.log(res);
     } catch (error) {
       console.log(error);
     }
@@ -24,19 +24,15 @@ useEffect(() => {
 if (!user) {
   return <div>Loading...</div>;
 }
-const {onlineUsers} = useSocketContext();
-const isOnline = onlineUsers.includes(conversation._id)
 
   return (
     
     <div className="conversation" style={{display:"flex"}}>
-      <div className={`avatar ${isOnline ? "online" : ""}`}>
       <img
         className="conversationImg"
         src={user.profilePicture}
         alt=""
       />
-      </div>
       <span className="conversationName">{user.username}</span>
     </div>
     

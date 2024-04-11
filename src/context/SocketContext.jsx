@@ -3,7 +3,7 @@ import { AuthContext } from "./AuthContext";
 import { io } from "socket.io-client";
 
 export const useSocketContext = () => {
-	return useContext(AuthContext);
+	return useContext(SocketContext);
 };
 
 export const SocketContext = createContext();

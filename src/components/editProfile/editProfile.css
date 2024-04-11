@@ -1,5 +1,3 @@
-
-
 .form-container {
   max-width: 400px;
   margin: 0 auto;
@@ -55,5 +53,57 @@
 }
 
 .form-container button:hover {
+  background-color: #0056b3;
+}
+
+/* Profile picture section */
+.form-container .profile-pic-container {
+  margin-bottom: 20px;
+}
+
+.form-container .profile-pic-container label {
+  display: block;
+}
+
+.form-container .profile-pic-container input[type="file"] {
+  display: none;
+}
+
+.form-container .profile-pic-container .profile-pic-upload {
+  display: inline-block;
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.form-container .profile-pic-container .profile-pic-upload:hover {
+  background-color: #0056b3;
+}
+
+/* Cover photo section */
+.form-container .cover-photo-container {
+  margin-bottom: 20px;
+}
+
+.form-container .cover-photo-container label {
+  display: block;
+}
+
+.form-container .cover-photo-container input[type="file"] {
+  display: none;
+}
+
+.form-container .cover-photo-container .cover-photo-upload {
+  display: inline-block;
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.form-container .cover-photo-container .cover-photo-upload:hover {
   background-color: #0056b3;
 }
