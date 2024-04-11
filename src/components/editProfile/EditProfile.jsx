@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import "./editProfile.css"
 import { Axios } from 'axios';
 
@@ -13,6 +13,8 @@ const EditProfile = () => {
   const [previewImage, setPreviewImage] = useState(null);
   const [coverPicture,setCoverPicture] = useState(null);
   const [previewCoverPicture,setPreviewCoverPicture] = useState(null);
+
+  const fileInputRef = useRef(null);
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
@@ -86,15 +88,21 @@ const EditProfile = () => {
         <label htmlFor="profilePic">Profile Picture:</label>
         <input
           type="file"
-          id="profilePic"
+          id="fileInput"
+          ref={fileInputRef}
+          className="hidden"
+          onChange={handleFileChange}
           name="profilePic"
         />
       </div>
       <div>
         <label htmlFor="coverPhoto">Cover Photo:</label>
         <input
-          type="file"
-          id="coverPhoto"
+           type="file"
+           id="fileInput"
+           ref={fileInputRef}
+           className="hidden"
+           onChange={handleFileChange}
           name="coverPhoto"
         />
       </div>
@@ -102,6 +110,7 @@ const EditProfile = () => {
        type="submit"
        onClick={handleSubmit}
       >Save</button>
+
     </form>
   );
 };
