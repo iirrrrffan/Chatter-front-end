@@ -23,13 +23,17 @@ const Sidebar = () => {
             </Link>
           </div>
           
+          <div className="sidebarListItem" >
+            <Link to={"/list"}>
+            <Diversity3Icon className="sidebarIcon" />
+            </Link>
+          </div>
+
           <div className="sidebarListItem" onClick={handleLogout}>
             <LogoutIcon className="sidebarIcon" />
           </div>
           
-          <div className="sidebarListItem" >
-            <Diversity3Icon className="sidebarIcon" />
-          </div>
+          
         </div>
         <div className='feed'>
           <div className='feedWrapper'>

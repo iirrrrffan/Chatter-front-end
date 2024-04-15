@@ -1,19 +1,27 @@
+/* Base styles */
 .conversation {
   display: flex;
   align-items: center;
-  padding: 10px;
+  padding: 15px;
   cursor: pointer;
-  margin-top: 20px;
-  
+  margin-top: 10px;
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Added transition for transform */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .conversation:hover {
-  background-color: rgb(179, 171, 171);
+  background: linear-gradient(to right, #4753de, #72b7df);
+  transform: translateY(-5px); /* Added animation */
 }
 
 .avatar {
   position: relative;
   display: inline-block;
+  transition: transform 0.3s ease; /* Added transition for transform */
+}
+
+.conversation:hover .avatar {
+  transform: translateY(-5px); /* Added animation */
 }
 
 .avatar.online::after {
@@ -21,27 +29,32 @@
   position: absolute;
   width: 10px;
   height: 10px;
-  background-color: green;
+  background-color: #2ecc71; /* Green color */
   border-radius: 50%;
   bottom: 0;
   right: 0;
 }
 
 .conversationImg {
-  width: 40px;
-  height: 40px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   object-fit: cover;
   margin-right: 20px;
 }
 
 .conversationName {
-  font-weight: 500;
+  font-weight: bold;
+  color: #333; /* or any color you prefer */
 }
 
 @media screen and (max-width: 768px) {
+  .conversationImg {
+    width: 30px;
+    height: 30px;
+  }
+
   .conversationName {
     display: none;
   }
 }
-  

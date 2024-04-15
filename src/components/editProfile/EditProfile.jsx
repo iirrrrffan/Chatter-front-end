@@ -1,11 +1,14 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import "./editProfile.css"
-import { Axios } from 'axios';
+import axios  from 'axios';
 
 const EditProfile = () => {
 
   const user = typeof window !== 'undefined' ? JSON.parse(window.localStorage.getItem('user')) || {} : {};
+ 
   const userId = user._id;
+  console.log(userId,"userrr");
+//  const[user,setUser]=useState()
 
   const [username, setUsername] = useState(user.username || '');
   const [email, setEmail] = useState(user.email || '');
@@ -26,13 +29,39 @@ const EditProfile = () => {
     }
   };
 
+ 
+  const handleSubmit = async () => {
+    try {
+      const formData = new FormData();
+      formData.append("username",username);
+      formData.append("email",email);
+      formData.append("profilePic",profilePic);
+      formData.append("coverPicture",coverPicture);
+
+      const response = await axios.put(`http://localhost:3006/api/users/${userId}`, formData);
+      if (response.status === 200) {
+        localStorage.setItem("user", JSON.stringify(response.data.user));
+
+      }
+    } catch (error) {
+      console.log('Error editing profile:', error);
+    }
+     
+  };
+
+
+
   useEffect(() => {
     const fetchProfile = async () => {
+     
       try {
-        const response = await Axios.get(`http://localhost:3006/api/users/${userId}`);
+        const response = await axios.get(`http://localhost:3006/api/users/${userId}`);
+        console.log(response,"getttt");
         if (response.status === 200) {
           const userData = response.data.user;
+   
           setUsername(userData.username);
+                 console.log(userData,"usurrrrr");
           setEmail(userData.email);
           setProfilePic(userData.profilePic);
           setCoverPicture(userData.coverPicture);
@@ -43,24 +72,8 @@ const EditProfile = () => {
     };
 
     fetchProfile();
-  }, [userId]);
+  }, [userId ]);
 
-  const handleSubmit = async () => {
-    try {
-      const formData = new FormData();
-      formData.append("username", username);
-      formData.append("email", email);
-      formData.append("profilePic", profilePic);
-      formData.append("coverPicture", coverPicture);
-
-      const response = await Axios.put(`http://localhost:3006/api/users/${userId}`, formData);
-      if (response.status === 200) {
-        localStorage.setItem("user", JSON.stringify(response.data.user));
-      }
-    } catch (error) {
-      console.log('Error editing profile:', error);
-    }
-  };
 
   return (
     <form className="form-container">

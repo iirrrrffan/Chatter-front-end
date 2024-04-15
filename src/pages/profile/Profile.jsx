@@ -33,6 +33,7 @@ const Profile = () => {
       if (user?._id) { 
         const response = await axios.get(`http://localhost:3006/api/users/${user._id}`);
        console.log(response);
+       setUser(response)
         if (response.status === 200) {
           setUsername(response.data.user.username);
           setEmail(response.data.user.email);

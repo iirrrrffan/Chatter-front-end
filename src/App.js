@@ -13,6 +13,9 @@ import Online from './components/online/Online.jsx';
 import Share from './components/share/Share.jsx';
 import Conversation from './components/conversation/Conversation.jsx';
 import EditProfile from './components/editProfile/EditProfile.jsx';
+import List from './pages/list/List.jsx';
+import FriendList from './components/friedsLsit/FriendList.jsx';
+import UserProfile from './pages/userProfile/UserProfile.jsx';
 
 
 
@@ -34,6 +37,9 @@ function App() {
 <Route path='/share' element={<Share/>}/>
 <Route path='/people' element={<Conversation/>}/>
 <Route path='/editprofile' element={<EditProfile/>}/>
+<Route path='/list' element={<List/>}/>
+<Route path='/friendslist' element={<FriendList/>}/>
+<Route path='/userprofile' element={<UserProfile/>}/>
     </Routes>
     </div>
   );
