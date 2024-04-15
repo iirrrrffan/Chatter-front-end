@@ -39,7 +39,7 @@ function App() {
 <Route path='/editprofile' element={<EditProfile/>}/>
 <Route path='/list' element={<List/>}/>
 <Route path='/friendslist' element={<FriendList/>}/>
-<Route path='/userprofile' element={<UserProfile/>}/>
+<Route path='/userprofile/:_id' element={<UserProfile/>}/>
     </Routes>
     </div>
   );

@@ -1,19 +1,12 @@
 import React, { useState } from 'react';
 import Sidebar from '../../components/sidebar/Sidebar';
 import "./userProfile.css";
+import { useParams } from 'react-router-dom';
 
 const UserProfile = () => {
-  const [isFollowing, setIsFollowing] = useState(false);
-  const [isMessaging, setIsMessaging] = useState(false);
-
-  const handleFollowToggle = () => {
-    setIsFollowing(!isFollowing);
-  };
-
-  const handleMessageToggle = () => {
-    setIsMessaging(!isMessaging);
-  };
-
+  const { _id } = useParams();
+  console.log(_id);
+ 
   return (
     <>
       {/* <Topbar /> */}
@@ -41,14 +34,12 @@ const UserProfile = () => {
                 <h1 style={{ fontFamily: 'Arial', fontSize: 30 }}>Email</h1>
                 <h1>@suiefhui</h1>
               </div>
-              {isFollowing ? (
+             
                 <>
-                  <button className="unfollowButton" onClick={handleFollowToggle}>Unfollow</button>
-                  <button className="messageButton" onClick={handleMessageToggle}>Message</button>
+                  <button className="unfollowButton">Unfollow</button>
+                  <button className="messageButton" >Message</button>
                 </>
-              ) : (
-                <button className="followButton" onClick={handleFollowToggle}>Follow</button>
-              )}
+                <button className="followButton">Follow</button>
             </div>
           </div>
           <div className="userprofileRightBottom"></div>
