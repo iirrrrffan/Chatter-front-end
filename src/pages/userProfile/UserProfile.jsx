@@ -1,12 +1,30 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Sidebar from '../../components/sidebar/Sidebar';
-import "./userProfile.css";
+import './userProfile.css';
 import { useParams } from 'react-router-dom';
+import axios from 'axios';
 
 const UserProfile = () => {
+  const [state,setState]= useState()
   const { _id } = useParams();
-  console.log(_id);
- 
+  const [isFollowing, setIsFollowing] = useState(false);
+
+  const handleFollowToggle = () => {
+    setIsFollowing(prevState => !prevState);
+  };
+  const fecthdata = async()=>{
+    try {
+      const res = await axios.get(`http://localhost:3006/api/users/userbyId/${_id}`)
+    
+      setState(res.data.user)
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  useEffect(()=>{
+    fecthdata()
+  })
+console.log(state);
   return (
     <>
       {/* <Topbar /> */}
@@ -17,29 +35,35 @@ const UserProfile = () => {
             <div className="userprofileCover">
               <img
                 className="userprofileCoverImg"
-                src="https://i.pinimg.com/474x/7e/05/8d/7e058d01d8ee1303f1eeb7d92a7b3c0c.jpg"
+                src={state?.coverPicture}
                 alt=""
               />
               <img
                 className="userprofileUserImg"
-                src="https://i.pinimg.com/474x/f3/15/ea/f315eaf88a74193d158cbf6482548421.jpg"
+                src={state?.profilePicture}
                 alt=""
               />
             </div>
             <div className="userprofileInfo">
-              <h2 className="userprofileInfoName">profileInfoName</h2>
+              <h2 className="userprofileInfoName">{state?.username}</h2>
               <h1 style={{ fontSize: 20 }}>following 3</h1>
               <h1 style={{ fontSize: 20 }}>followers 5</h1>
-              <div className='email'>
+              <div className="email">
                 <h1 style={{ fontFamily: 'Arial', fontSize: 30 }}>Email</h1>
-                <h1>@suiefhui</h1>
+                <h1>{state?.email}</h1>
               </div>
-             
+              {isFollowing ? (
                 <>
-                  <button className="unfollowButton">Unfollow</button>
-                  <button className="messageButton" >Message</button>
+                  <button className="unfollowButton" onClick={handleFollowToggle}>
+                    Unfollow
+                  </button>
+                  <button className="messageButton">Message</button>
                 </>
-                <button className="followButton">Follow</button>
+              ) : (
+                <button className="followButton" onClick={handleFollowToggle}>
+                  Follow
+                </button>
+              )}
             </div>
           </div>
           <div className="userprofileRightBottom"></div>
@@ -47,6 +71,6 @@ const UserProfile = () => {
       </div>
     </>
   );
-}
+};
 
 export default UserProfile;
