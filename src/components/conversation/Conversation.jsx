@@ -14,7 +14,6 @@ useEffect(() => {
     try {
       const res = await axios.get(`http://localhost:3006/api/users/userbyId/${friendId}`); // Use friendId instead of userId
       setUser(res.data.user)
-      console.log(res);
     } catch (error) {
       console.log(error);
     }

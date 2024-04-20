@@ -14,20 +14,39 @@ const Messanger = () => {
   const navigation = useNavigate()
   const [users,setUsers]=useState(null);
   const [conversation,setConversation]=useState([])
+  const scrollRef = useRef();
   const [currentChat,setCurrentChat]=useState(null)
+  const [arrivalmessage,setArrivalMessage]=useState(null)
   const [messages,setMessages]=useState([])
   const [newMessage,setNewMessage]=useState("")
-  const scrollRef = useRef();
-const socket = useRef(io("http://localhost:8900"));
+  const [onlineUsers,setOnlineUsers]=useState([])
+const socket = useRef();
 
 const {user} = useContext(AuthContext)
+
+
+useEffect(()=>{
+  socket.current = io("http://localhost:8900");
+  socket.current.on("getMessage", data =>{
+    setArrivalMessage({
+      sender: data.senderId,
+      text: data.text,
+      createdAt: Date.now(),
+    })
+  })
+},[])
+
+useEffect(()=>{
+ arrivalmessage && currentChat?.members.includes(arrivalmessage.sender)&&
+ setMessages((prev)=>[...prev,arrivalmessage])
+},[arrivalmessage,currentChat])
 
 useEffect(()=>{
   socket.current.emit("addUser",user._id);
   socket.current.on("getUsers",users=>{
-    console.log("jb",users);
+    setOnlineUsers(users)
   })
-},[user])
+},[user]);
 
 
 useEffect(()=>{
@@ -35,7 +54,7 @@ useEffect(()=>{
     try{
      const res = await axios.get(`http://localhost:3006/api/conversation/${user._id}`)
      setConversation(res.data)
-     console.log(res);
+     
     }catch(error){
    console.log(error);
     }
@@ -80,6 +99,13 @@ useEffect(() => {
     text : newMessage,
     conversationId : currentChat._id,
   };
+const reciverid = currentChat.members.find(member=>member !==user._id)
+
+  socket.current.emit("sendMessage",{
+    senderId: user._id,
+    reciverid,
+    text: newMessage,
+  })
   try{
  const res = await axios.post("http://localhost:3006/api/messages",message)
  setMessages([...messages,res.data]);
@@ -87,7 +113,8 @@ setNewMessage("");
   }catch(error){
     console.log(error);
   }
- }
+ };
+
 
  useEffect(()=>{
  scrollRef.current?.scrollIntoView({behavior:"smooth"})
