@@ -11,11 +11,11 @@ const FriendList = () => {
 
  const navigation = useNavigate()
    const [users, setUsers] = useState();
-
-
+  
   const fecthdata=async ()=>{
     try {
       const res=await axios.get('http://localhost:3006/api/users/allusers')
+      
       setUsers(res.data.users)
     } catch (error) {
       console.log(error);

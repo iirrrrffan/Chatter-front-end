@@ -11,10 +11,6 @@ const UserProfile = () => {
   const [isFollowing, setIsFollowing] = useState(false);
   const userId = _id;
 
-  const handleFollowToggle = () => {
-    setIsFollowing(prevState => !prevState);
-  };
-
   useEffect(() => {
     const userData = window.localStorage.getItem("user");
     if (userData) {

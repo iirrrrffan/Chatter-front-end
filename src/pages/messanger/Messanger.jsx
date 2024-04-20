@@ -15,21 +15,20 @@ const Messanger = () => {
   const [users,setUsers]=useState(null);
   const [conversation,setConversation]=useState([])
   const [currentChat,setCurrentChat]=useState(null)
-  const [socket,setSocket]=useState(null)
   const [messages,setMessages]=useState([])
   const [newMessage,setNewMessage]=useState("")
   const scrollRef = useRef();
+const socket = useRef(io("http://localhost:8900"));
 
 const {user} = useContext(AuthContext)
 
-
 useEffect(()=>{
-   setSocket(io("ws:http://localhost:8900"))
-},[])
+  socket.current.emit("addUser",user._id);
+  socket.current.on("getUsers",users=>{
+    console.log("jb",users);
+  })
+},[user])
 
-useEffect(()=>{
-  
-})
 
 useEffect(()=>{
   const getConversaton = async ()=>{
