@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Sidebar from '../../components/sidebar/Sidebar';
 import './userProfile.css';
-import { useParams } from 'react-router-dom';
+import { Navigate, useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 
 const UserProfile = () => {
@@ -11,12 +11,15 @@ const UserProfile = () => {
   const [isFollowing, setIsFollowing] = useState(false);
   const userId = _id;
 
+  const  navigate=useNavigate();
+
   useEffect(() => {
     const userData = window.localStorage.getItem("user");
     if (userData) {
       setUserData(JSON.parse(userData));
     }
   }, []);
+  const senderId = userData?._id;
 
 
   const fecthdata = async()=>{
@@ -57,6 +60,21 @@ const UserProfile = () => {
       console.error("Error occurred while following/unfollowing user:", error);
     }
   };
+
+
+  const handleSubmit = async (receiverId)=>{
+    try {
+      const data = {
+        senderId: senderId,
+        receiverId:receiverId,
+      }
+      const res = await axios.post("http://localhost:3006/api/conversation",data)
+      console.log(res);
+      navigate("/messanger")
+    } catch (error) {
+      
+    }
+  }
   
   
   return (
@@ -87,7 +105,7 @@ const UserProfile = () => {
                   <button className="unfollowButton" onClick={handleFollow}>
                     Unfollow
                   </button>
-                  <button className="messageButton">Message</button>
+                  <button className="messageButton" onClick={()=>handleSubmit(state?._id)}>Message</button>
                 </>
               ) : (
                 <button className="followButton" onClick={handleFollow}>
