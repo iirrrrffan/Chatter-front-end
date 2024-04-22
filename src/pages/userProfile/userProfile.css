@@ -56,14 +56,6 @@
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
     letter-spacing: 1px;
 }
-
-.email{
-    margin-top: 15x;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-    width: fit-content; 
-}
 .followButton,
 .unfollowButton {
   padding: 10px 20px;

@@ -82,10 +82,6 @@ const UserProfile = () => {
               <h2 className="userprofileInfoName">{state?.username}</h2>
               <h1 style={{ fontSize: 20 }}>following {state?.followings.length}</h1>
               <h1 style={{ fontSize: 20 }}>followers {state?.followers.length}</h1>
-              <div className="email">
-                <h1 style={{ fontFamily: 'Arial', fontSize: 30 }}>Email</h1>
-                <h1>{state?.email}</h1>
-              </div>
               {isFollowing ? (
                 <>
                   <button className="unfollowButton" onClick={handleFollow}>

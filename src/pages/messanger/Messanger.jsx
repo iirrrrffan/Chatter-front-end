@@ -12,7 +12,7 @@ import {io} from "socket.io-client"
 
 const Messanger = () => {
   const navigation = useNavigate()
-  const [users,setUsers]=useState(null);
+  const [users,setUsers]=useState([]);
   const [conversation,setConversation]=useState([])
   const scrollRef = useRef();
   const [currentChat,setCurrentChat]=useState(null)
@@ -20,6 +20,7 @@ const Messanger = () => {
   const [messages,setMessages]=useState([])
   const [newMessage,setNewMessage]=useState("")
   const [onlineUsers,setOnlineUsers]=useState([])
+  const [search,setSearch]=useState('')
 const socket = useRef();
 
 const {user} = useContext(AuthContext)
@@ -90,8 +91,6 @@ useEffect(() => {
 }, [currentChat, user._id]);
  
  
- 
-
  const handleSubmit = async(e)=>{
   e.preventDefault();
   const message = {
@@ -120,7 +119,29 @@ setNewMessage("");
  scrollRef.current?.scrollIntoView({behavior:"smooth"})
  },[messages])
 
+//  const Search=conversation?.filter((i)=>{
+//   return i?.username?.toLowerCase().includes(search.toLowerCase())
+//  })
+// console.log(Search);
 
+
+// const fecthdata=async ()=>{
+//   try {
+//     const res=await axios.get('http://localhost:3006/api/users/allusers')
+    
+//     setUsers(res.data.users)
+//   } catch (error) {
+//     console.log(error);
+//   }
+// }
+// useEffect(()=>{
+//   fecthdata()
+// },[])
+// const Search = users?.filter((i) => {
+//   return i.username.toLowerCase().includes(search.toLowerCase());
+// });
+// console.log(Search);
+console.log(conversation);
   return (
     
     <>
@@ -128,11 +149,10 @@ setNewMessage("");
     <div style={{display:"flex"}}>
       <div> <Sidebar/></div>
    
-   
     <div className="messenger">
       <div className="chatMenu" style={{width:"30%", flex:"none"}}>
         <div className="chatMenuWrapper">
-          <input placeholder="Search for friends" className="chatMenuInput" />
+          <input placeholder="Search for friends" className="chatMenuInput" onChange={(e)=>setSearch(e.target.value)}/>
          
            {conversation.map(c=>(
             <div onClick={()=>setCurrentChat(c)}>
@@ -152,7 +172,6 @@ setNewMessage("");
                <Message Message={m} own={m.sender === user._id} key={index}/>
                </div>
                ))}
-                 
 
               </div>
               <div className="chatBoxBottom">
@@ -169,6 +188,7 @@ setNewMessage("");
             </> ):( <span className='noConversationText '>Open a conversation to start a chat</span>)}
         </div>
       </div>
+       
     </div>
     </div>
   </>

@@ -10,7 +10,8 @@ import Sidebar from '../sidebar/Sidebar';
 const FriendList = () => {
 
  const navigation = useNavigate()
-   const [users, setUsers] = useState();
+   const [users, setUsers] = useState([]);
+   const [search,setSerch]=useState('')
   
   const fecthdata=async ()=>{
     try {
@@ -24,6 +25,11 @@ const FriendList = () => {
   useEffect(()=>{
     fecthdata()
   },[])
+  const Search=users?.filter((i)=>{
+    return i.username.toLowerCase().includes(search.toLowerCase())
+  })
+  console.log(Search);
+  // console.log(users);
   return (
     <>
     <div className="main">
@@ -32,10 +38,11 @@ const FriendList = () => {
           <input
             type="text"
             placeholder="Search..."
+            onChange={(e)=>setSerch(e.target.value)}
           />
         </div>
     <div >
-      {users?.map((i,index)=>(
+      {Search?.map((i,index)=>(
     <div key={i?.Id||index} className="friendList" style={{display:"flex"}} onClick={()=>{navigation(`/userprofile/${i._id}`)}}> 
     <img
       className="friendListImg"

@@ -38,15 +38,15 @@ const Login = () => {
       console.log(error,"login error");
     }
   }
- 
 
+  
   return (
     <div className="login">
     <div className="loginWrapper">
       <div className="loginLeft">
         <h3 className="loginLogo">Chatter</h3>
         <span className="loginDesc">
-          Login ........
+         ........................
         </span>
       </div>
       <div className="loginRight">

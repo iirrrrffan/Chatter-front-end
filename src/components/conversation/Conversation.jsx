@@ -7,12 +7,13 @@ const Conversation = ({conversation,currentUser}) => {
 const [state,setState]=useState()
 const [user,setUser]=useState(null)
 const userId = useParams()
-                     
+
+
 useEffect(() => {
-  const friendId = conversation.members.find(m => m !== currentUser._id); // Find the friend's ID
+  const friendId = conversation.members.find(m => m !== currentUser._id); 
   const getUser = async () => {
     try {
-      const res = await axios.get(`http://localhost:3006/api/users/userbyId/${friendId}`); // Use friendId instead of userId
+      const res = await axios.get(`http://localhost:3006/api/users/userbyId/${friendId}`); 
       setUser(res.data.user)
     } catch (error) {
       console.log(error);
