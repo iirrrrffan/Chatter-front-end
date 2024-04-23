@@ -119,28 +119,6 @@ setNewMessage("");
  scrollRef.current?.scrollIntoView({behavior:"smooth"})
  },[messages])
 
-//  const Search=conversation?.filter((i)=>{
-//   return i?.username?.toLowerCase().includes(search.toLowerCase())
-//  })
-// console.log(Search);
-
-
-// const fecthdata=async ()=>{
-//   try {
-//     const res=await axios.get('http://localhost:3006/api/users/allusers')
-    
-//     setUsers(res.data.users)
-//   } catch (error) {
-//     console.log(error);
-//   }
-// }
-// useEffect(()=>{
-//   fecthdata()
-// },[])
-// const Search = users?.filter((i) => {
-//   return i.username.toLowerCase().includes(search.toLowerCase());
-// });
-// console.log(Search);
 console.log(conversation);
   return (
     

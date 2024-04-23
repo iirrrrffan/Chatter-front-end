@@ -56,7 +56,7 @@ const FriendList = () => {
             >
               <img
                 className="friendListImg"
-                src={user?.profilePicture}
+                src={user?.profilePicture || "https://i.pinimg.com/474x/4a/88/91/4a8891e05c016137daca400e23175f58.jpg"}
                 alt={user.username}
               />
               <span className="friendListName">{user?.username}</span>

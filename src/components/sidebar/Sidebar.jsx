@@ -81,7 +81,7 @@ const Sidebar = () => {
         <div className="sidebarList">
           <div className="sidebarListItem">
             <Link to={"/profile"} className="link">
-              <img src={user?.profilePicture}alt="" className='img'/>
+              <img src={user?.profilePicture || "https://i.pinimg.com/474x/4a/88/91/4a8891e05c016137daca400e23175f58.jpg"}alt="" className='img'/>
             </Link>
           </div>
         </div>
