@@ -12,6 +12,8 @@ import EditProfile from './components/editProfile/EditProfile.jsx';
 import List from './pages/list/List.jsx';
 import FriendList from './components/friedsLsit/FriendList.jsx';
 import UserProfile from './pages/userProfile/UserProfile.jsx';
+import FollowingList from './components/followingList/FollowingList.js';
+import FollowersList from './components/followersList/FollowersList.jsx';
 
 
 export const userLogin=createContext()
@@ -30,6 +32,8 @@ function App() {
 <Route path='/list' element={<List/>}/>
 <Route path='/friendslist' element={<FriendList/>}/>
 <Route path='/userprofile/:_id' element={<UserProfile/>}/>
+<Route path='/followingList' element={<FollowingList/>}/>
+<Route path='/followersList' element={<FollowersList/>}/>
     </Routes>
     </div>
   );

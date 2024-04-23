@@ -67,8 +67,12 @@ const Profile = () => {
             </div>
             <div className="profileInfo">
             <h2 className="profileInfoName">{user ?.username}</h2>
+            <Link to={"/followingList"}>
             <h1 style={{fontSize:20}}>following 3</h1>
+            </Link>
+            <Link to={"/followersList"}> 
             <h1 style={{fontSize:20}}>followers 5</h1>
+            </Link>
               <div>
                 <Link to={"/editprofile"}>
                 <button className='btn'>Edit</button>
