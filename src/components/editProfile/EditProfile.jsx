@@ -14,7 +14,6 @@ const EditProfile = () => {
 
 
   const  navigate=useNavigate();
-  const fileInputRef = useRef(null);
 
   useEffect(() => {
 
@@ -42,16 +41,25 @@ const EditProfile = () => {
     fetchProfile();
   }, []); 
 
-  const handleFileChange = (e) => {
+  const profilePicInputRef = useRef(null);
+  const coverPicInputRef = useRef(null);
+
+  const handleProfilePicChange = (e) => {
     const file = e.target.files[0];
     if (file) {
       setProfilePic(file);
       setPreviewImage(URL.createObjectURL(file));
-      setCoverPicture(file);
-      setPreviewCoverPicture(URL.createObjectURL(file));
     }
   };
 
+  const handleCoverPicChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      setCoverPicture(file);
+      setPreviewCoverPicture(URL.createObjectURL(file)); 
+    }
+  };
+console.log(coverPicture,profilePic,'cover pic ');
   const handleSubmit = async () => {
     try {
       const formData = new FormData();
@@ -67,7 +75,7 @@ const EditProfile = () => {
       }
     } catch (error) {
       console.log('Error editing profile:', error);
-    }
+    }   
   };
 
   return (
@@ -95,8 +103,9 @@ const EditProfile = () => {
         <input
           type="file"
           id="fileInput"
-          ref={fileInputRef}
-          onChange={handleFileChange}
+          name='profilePic'
+          ref={profilePicInputRef}
+          onChange={handleProfilePicChange}
         />
         {previewImage && <img src={previewImage} alt="Preview" />}
       </div>
@@ -104,8 +113,9 @@ const EditProfile = () => {
         <label htmlFor="coverPicture">Cover Picture:</label>
         <input
           type="file"
-          ref={fileInputRef}
-          onChange={handleFileChange}
+          ref={coverPicInputRef}
+          name='coverPicture'
+          onChange={handleCoverPicChange}
         />
         {previewCoverPicture && <img src={previewCoverPicture} alt="Preview" />}
       </div>

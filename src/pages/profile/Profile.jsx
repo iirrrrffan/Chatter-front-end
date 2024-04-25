@@ -11,6 +11,7 @@ const Profile = () => {
   const [email, setEmail] = useState('');
   const [profilePicture, setProfilePicture] = useState([]);
   const [coverPicture, setCoverPicture] = useState([]);
+  
 
   useEffect(() => {
     const storedUser = window.localStorage.getItem("user");
@@ -55,23 +56,25 @@ const Profile = () => {
             <div className="profileCover">
             <img
   className="profileCoverImg"
-  src={user?.coverPicture}
+  src={user?.coverPicture || "https://i.pinimg.com/564x/4c/84/79/4c8479b1c7353fba04b9dea897163b3f.jpg"}
   alt=""
 />
 
               <img
                 className="profileUserImg"
-                src={user?.profilePicture}
+                src={user?.profilePicture || "https://i.pinimg.com/474x/4a/88/91/4a8891e05c016137daca400e23175f58.jpg"}
                 alt=""
               />
             </div>
             <div className="profileInfo">
             <h2 className="profileInfoName">{user ?.username}</h2>
+            <br/>
             <Link to={"/followingList"}>
-            <h1 style={{fontSize:20}}>following 3</h1>
+            <h1 style={{fontSize:20}}>followers  {user?.followings.length}</h1>
             </Link>
+    
             <Link to={"/followersList"}> 
-            <h1 style={{fontSize:20}}>followers 5</h1>
+            <h1 style={{fontSize:20}}>followings  {user?.followers.length}</h1>
             </Link>
               <div>
                 <Link to={"/editprofile"}>

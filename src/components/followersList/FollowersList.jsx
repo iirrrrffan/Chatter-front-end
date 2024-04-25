@@ -3,6 +3,7 @@ import Sidebar from '../sidebar/Sidebar'
 import axios from 'axios';
 
 
+
 const FollowersList = () => {
     const [user, setUser] = useState(null);
     const [followersList, setFollowersList] = useState([]);
@@ -13,7 +14,6 @@ const FollowersList = () => {
           setUser(JSON.parse(storedUser));
         }
       }, []);
-
       useEffect(()=>{
         const fetchList = async()=>{
             try {
@@ -24,7 +24,7 @@ const FollowersList = () => {
             }
           }
           fetchList()
-      },[user])
+      },[])
 
   return (
     <div>

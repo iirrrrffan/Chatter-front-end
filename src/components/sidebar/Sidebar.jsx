@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import ChatIcon from '@mui/icons-material/Chat';
 import Diversity3Icon from '@mui/icons-material/Diversity3';
 import LogoutIcon from '@mui/icons-material/Logout';
+import CollectionsIcon from '@mui/icons-material/Collections';
 import { Link, useNavigate } from 'react-router-dom';
 import './sidebar.css';
 import axios from 'axios';
@@ -67,15 +68,17 @@ const Sidebar = () => {
             </Link>
           </div>
 
-          <div className="sidebarListItem" onClick={handleLogout}>
-            <LogoutIcon className="sidebarIcon" />
+          <div className="sidebarListItem" >
+         <Link to={"/share"}>
+            <CollectionsIcon className="sidebarIcon" />
+            </Link>
           </div>
           
           
         </div>
         <div className='feed'>
           <div className='feedWrapper'>
-            {/* Add any additional content here */}
+            <LogoutIcon className="sidebarIcon" onClick={handleLogout} />
           </div>
         </div>
         <div className="sidebarList">
