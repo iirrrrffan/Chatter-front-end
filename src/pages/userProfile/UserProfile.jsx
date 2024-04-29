@@ -76,6 +76,30 @@ const UserProfile = () => {
     }
   }
   
+
+  const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        const response = await axios.get(`http://localhost:3006/api/posts/profile/${userId}`);
+        console.log(response);
+        setPosts(response.data);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchPosts();
+  }, [userId]);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
   
   return (
     <>
@@ -114,7 +138,18 @@ const UserProfile = () => {
               )}
             </div>
           </div>
-          <div className="userprofileRightBottom"></div>
+          <div className="userprofileRightBottom">
+            {posts.map((post)=>(
+          <div className="postCard">
+      <img src={post?.image} alt='post' onClick={()=>navigate(`/post/${post._id}`)}/>
+      <div className="postCardContent">
+        <h3 className="postCardTitle">{post.text}</h3>
+      </div>
+    </div>
+    ))}
+          
+          </div>
+         
         </div>
       </div>
     </>

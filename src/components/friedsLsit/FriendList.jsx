@@ -9,10 +9,13 @@ const FriendList = () => {
   const [users, setUsers] = useState([]);
   const [search, setSearch] = useState('');
   const [userId, setUserId] = useState(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  
+  const usersPerPage = 5; 
 
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem('user') || '{}');
-    setUserId(user._id); 
+    setUserId(user._id);
   }, []);
 
   useEffect(() => {
@@ -28,12 +31,15 @@ const FriendList = () => {
     fetchData();
   }, []);
 
-
   const filteredUsers = users.filter((user) => user._id !== userId);
 
   const searchResults = filteredUsers.filter((user) =>
     user.username.toLowerCase().includes(search.toLowerCase())
   );
+
+  const totalPages = Math.ceil(searchResults.length / usersPerPage);
+  const startIdx = (currentPage - 1) * usersPerPage;
+  const currentUsers = searchResults.slice(startIdx, startIdx + usersPerPage);
 
   return (
     <>
@@ -47,7 +53,7 @@ const FriendList = () => {
           />
         </div>
         <div>
-          {searchResults.map((user, index) => (
+          {currentUsers.map((user, index) => (
             <div
               key={user._id || index}
               className="friendList"
@@ -62,6 +68,24 @@ const FriendList = () => {
               <span className="friendListName">{user?.username}</span>
             </div>
           ))}
+        </div>
+
+        <div className="paginationContainer">
+          <button
+            onClick={() => setCurrentPage(currentPage - 1)}
+            disabled={currentPage === 1}
+          >
+            Previous
+          </button>
+          <span>
+            Page {currentPage} of {totalPages}
+          </span>
+          <button
+            onClick={() => setCurrentPage(currentPage + 1)}
+            disabled={currentPage === totalPages}
+          >
+            Next
+          </button>
         </div>
       </div>
     </>

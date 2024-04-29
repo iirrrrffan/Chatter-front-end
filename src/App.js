@@ -36,7 +36,7 @@ function App() {
 <Route path='/userprofile/:_id' element={<UserProfile/>}/>
 <Route path='/followingList' element={<FollowingList/>}/>
 <Route path='/followersList' element={<FollowersList/>}/>
-<Route path='/post' element={<Post/>}/>
+<Route path='/post/:id' element={<Post/>}/>
 <Route path='/share' element={<Share/>}/>
     </Routes>
     </div>

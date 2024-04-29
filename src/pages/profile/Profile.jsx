@@ -47,6 +47,30 @@ const Profile = () => {
     }
   };
 
+  const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        const response = await axios.get(`http://localhost:3006/api/posts/profile/${user._id}`);
+        console.log(response);
+        setPosts(response.data);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchPosts();
+  }, [user?._id]);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+
   return (
     <>
       <div className="profile">
@@ -59,7 +83,6 @@ const Profile = () => {
   src={user?.coverPicture || "https://i.pinimg.com/564x/4c/84/79/4c8479b1c7353fba04b9dea897163b3f.jpg"}
   alt=""
 />
-
               <img
                 className="profileUserImg"
                 src={user?.profilePicture || "https://i.pinimg.com/474x/4a/88/91/4a8891e05c016137daca400e23175f58.jpg"}
@@ -84,6 +107,14 @@ const Profile = () => {
             </div>
           </div>
           <div className="profileRightBottom">
+          {posts.map((post) => (
+          <div className="postCard1">
+      <img src={post.image} alt='post' onClick={()=>navigation(`/post/${post._id}`)}/>
+      <div className="postCardContent1">
+        <h3 className="postCardTitle1">{post.text}</h3>
+      </div>
+    </div>
+ ))}
           </div>
         </div>
       </div>
