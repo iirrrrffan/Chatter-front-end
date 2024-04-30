@@ -5,17 +5,17 @@ import FmdGoodIcon from '@mui/icons-material/FmdGood';
 import EmojiEmotionsIcon from '@mui/icons-material/EmojiEmotions';
 import "./share.css"
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const Share = () => {
 const [user,setUser] = useState(null)
 const [profilePicture, setProfilePicture] = useState([]);
-
 const [text, setText] = useState("");
 const [image, setImage] = useState(null);
 const fileInputRef = useRef(null);
 const [previewImage, setPreviewImage] = useState(null);
 const [file, setFile] = useState(null);
-
+const navigate = useNavigate()
 
     useEffect(() => {
         const storedUser = window.localStorage.getItem("user");
@@ -24,22 +24,6 @@ const [file, setFile] = useState(null);
           setUser(JSON.parse(storedUser));
         }
       }, []);
-
-    //   const fetchProfile = async () => {
-    //     try {
-    //       if (user?._id) { 
-    //         const response = await axios.get(`http://localhost:3006/api/users/${user._id}`);
-    //        console.log(response);
-    //        setUser(response)
-    //         if (response.status === 200) {
-    //           setProfilePicture(response.data.user.profilePicture);  
-    //           }
-          
-    //       }
-    //     } catch (error) {
-    //       console.log('Error fetching user profile:', error);
-    //     }
-    //   };
       
     if (!user?._id) {
         console.log('User is not defined');
@@ -65,7 +49,7 @@ const [file, setFile] = useState(null);
           if (response.ok) {
             const data = await response.json();
             console.log(data);
-           
+           navigate("/profile")
           } else {
             console.log("error uploading");
           }
@@ -108,7 +92,7 @@ const [file, setFile] = useState(null);
       <hr className="shareHr" />
       {previewImage && (
   <div className="shareImgContainer">
-    <img className="shareImg" src={previewImage} alt="Selected Image" />
+    <img className="shareImg" src={previewImage} alt="SelectedImage" />
     <CancelIcon className="shareCancelImg" onClick={() => setPreviewImage(null)} />
   </div>
 )}

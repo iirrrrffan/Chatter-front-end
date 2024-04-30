@@ -72,6 +72,23 @@ const Profile = () => {
   }
 
 
+   const handleDeletePost = async (postId) => {
+    try {
+      const response = await axios.delete(`http://localhost:3006/api/posts/${postId}`, {
+        data: { userId: user._id },
+      });
+
+      if (response.status === 200) {
+        // Remove deleted post from state
+        setPosts(posts.filter(post => post._id !== postId));
+      } else {
+        console.error('Error deleting post:', response.data);
+      }
+    } catch (error) {
+      console.error('Error deleting post:', error);
+    }
+  };
+
   return (
     <>
       <div className="profile">
@@ -113,8 +130,8 @@ const Profile = () => {
       <img src={post.image} alt='post' onClick={()=>navigation(`/post/${post._id}`)}/>
       <div className="postCardContent1">
         <h3 className="postCardTitle1">{post.text}</h3>
-        <button className="deleteButton1">
-<DeleteForeverIcon/>
+        <button className="deleteButton1"  onClick={() => handleDeletePost(post._id)}>        
+          <DeleteForeverIcon/>
         </button>
       </div>
     </div>
