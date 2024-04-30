@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Navigate, useParams } from "react-router-dom";
+import { Navigate, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import"./post.css"
 
@@ -7,6 +7,8 @@ const Post = () => {
   const { id } = useParams(); 
   const [post, setPost] = useState(null);
   const [loading, setLoading] = useState(true);
+
+const navigate = useNavigate();
 
   useEffect(() => {
     const fetchPost = async () => {
@@ -29,7 +31,7 @@ const Post = () => {
 
   return (
     <div className="fullPostView">
-      <button className="closeButton" onClick={() => Navigate(-1)}>X</button>
+      <button className="closeButton" onClick={() => navigate(-1)}>X</button>
       <img className="fullPostImage" src={post?.image} alt="Post" />
       <div className="fullPostContent">
       </div>

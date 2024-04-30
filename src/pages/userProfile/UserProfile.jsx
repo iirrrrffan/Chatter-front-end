@@ -140,10 +140,10 @@ const UserProfile = () => {
           </div>
           <div className="userprofileRightBottom">
             {posts.map((post)=>(
-          <div className="postCard">
+          <div className="postCard2">
       <img src={post?.image} alt='post' onClick={()=>navigate(`/post/${post._id}`)}/>
-      <div className="postCardContent">
-        <h3 className="postCardTitle">{post.text}</h3>
+      <div className="postCardContent2">
+        <h3 className="postCardTitle2">{post.text}</h3>
       </div>
     </div>
     ))}

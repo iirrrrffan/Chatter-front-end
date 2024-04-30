@@ -3,6 +3,7 @@ import "./profile.css";
 import Sidebar from '../../components/sidebar/Sidebar';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 
 const Profile = () => {
   const navigation = useNavigate();
@@ -112,6 +113,9 @@ const Profile = () => {
       <img src={post.image} alt='post' onClick={()=>navigation(`/post/${post._id}`)}/>
       <div className="postCardContent1">
         <h3 className="postCardTitle1">{post.text}</h3>
+        <button className="deleteButton1">
+<DeleteForeverIcon/>
+        </button>
       </div>
     </div>
  ))}

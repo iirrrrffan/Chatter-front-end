@@ -17,11 +17,7 @@
     object-fit: cover;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    transition: transform 0.3s ease;
 }
-.profileCoverImg:hover {
-    transform: scale(1.05); /* Scale up slightly on hover */
-  }
 
 .profileUserImg{
     width: 200px;
@@ -83,6 +79,7 @@
 }
 
 .postCard1 {
+    width: 300px;
     background-color: #f8f8f8;
     border-radius: 10px;
     overflow: hidden;
@@ -109,3 +106,44 @@
     font-weight: bold;
     color: #333;
   }
+
+
+.postCard1 {
+    position: relative; 
+    width: 290px;
+    background-color: #f8f8f8;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .postCard1:hover {
+    transform: scale(1.05);
+  }
+  
+ 
+  .deleteButton1 {
+    position: absolute; 
+    top: 250px; 
+    right: 10px; 
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 25px;
+    height: 25px;
+  }
+  
+  .deleteButton1:hover {
+    background-color: #c0392b;
+    transform: scale(1.05);
+  }
+  
+  
