@@ -1,10 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import CancelIcon from '@mui/icons-material/Cancel';
 import CollectionsIcon from '@mui/icons-material/Collections';
-import FmdGoodIcon from '@mui/icons-material/FmdGood';
-import EmojiEmotionsIcon from '@mui/icons-material/EmojiEmotions';
 import "./share.css"
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 const Share = () => {
@@ -79,7 +76,7 @@ const navigate = useNavigate()
       <div className="shareTop">
         <img
           className="shareProfileImg"
-          src={user?.profilePicture}
+          src={user?.profilePicture || "https://i.pinimg.com/474x/4a/88/91/4a8891e05c016137daca400e23175f58.jpg"}
           alt=""
         />
         <input
@@ -112,14 +109,6 @@ const navigate = useNavigate()
               
             />
           </label>
-          <div className="shareOption">
-            <FmdGoodIcon  htmlColor="green" className="shareIcon" />
-            <span className="shareOptionText">Location</span>
-          </div>
-          <div className="shareOption">
-            <EmojiEmotionsIcon htmlColor="goldenrod" className="shareIcon" />
-            <span className="shareOptionText">Feelings</span>
-          </div>
         </div>
         <button className="shareButton" type="submit" onClick={handleAddPost}>
           Share

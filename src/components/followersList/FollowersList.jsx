@@ -16,6 +16,7 @@ const FollowersList = () => {
       }, []);
       useEffect(()=>{
         const fetchList = async()=>{
+          if (user) {
             try {
                 const res = await axios.get(`http://localhost:3006/api/auth/followingList/${user._id}`)
                 setFollowersList(res.data.followingList)
@@ -23,8 +24,9 @@ const FollowersList = () => {
                 console.log(error,"fetchingList error");
             }
           }
+          };
           fetchList()
-      },[])
+      },[user])
 
   return (
     <div>

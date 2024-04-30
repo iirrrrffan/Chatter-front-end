@@ -12,6 +12,8 @@ const Profile = () => {
   const [email, setEmail] = useState('');
   const [profilePicture, setProfilePicture] = useState([]);
   const [coverPicture, setCoverPicture] = useState([]);
+  const [followersList, setFollowersList] = useState([]);
+  const [followingList, setFollowingList] = useState([]);
   
 
   useEffect(() => {
@@ -27,6 +29,33 @@ const Profile = () => {
       fetchProfile();
     }
   }, []);
+
+  useEffect(() => {
+    const fetchFollowing = async () => {
+      if (user) {
+        try {
+          const response = await axios.get(`http://localhost:3006/api/auth/followingList/${user._id}`);
+          setFollowingList(response.data.followingList);
+        } catch (error) {
+          console.error('Error fetching following list:', error);
+        }
+      }
+    };
+
+    const fetchFollowers = async () => {
+      if (user) {
+        try {
+          const response = await axios.get(`http://localhost:3006/api/auth/followersList/${user._id}`);
+          setFollowersList(response.data.followersList);
+        } catch (error) {
+          console.error('Error fetching followers list:', error);
+        }
+      }
+    };
+
+    fetchFollowing();
+    fetchFollowers();
+  }, [user]);
 
   const fetchProfile = async () => {
     
@@ -111,11 +140,11 @@ const Profile = () => {
             <h2 className="profileInfoName">{user ?.username}</h2>
             <br/>
             <Link to={"/followingList"}>
-            <h1 style={{fontSize:20}}>followers  {user?.followings.length}</h1>
+            <h1 style={{fontSize:20}}>followers {followersList.length}</h1>
             </Link>
     
             <Link to={"/followersList"}> 
-            <h1 style={{fontSize:20}}>followings  {user?.followers.length}</h1>
+            <h1 style={{fontSize:20}}>followings  {followingList.length} </h1>
             </Link>
               <div>
                 <Link to={"/editprofile"}>
