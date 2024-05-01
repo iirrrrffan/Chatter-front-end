@@ -1,16 +1,102 @@
-/* In your home.css file */
-.homePage1 {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .homeContainer1 {
-    display: flex;
-  }
-  
-  .homeimg {
-    max-width: 100%; /* Makes sure the image doesn't overflow its container */
-    width: 400px;    /* Reduces the width, making the image smaller */
-    height: auto;    /* Keeps the aspect ratio */
-  }
-  
+
+.homePage {
+  display: flex;
+  flex-direction: column;
+}
+
+.heroSection {
+  background: linear-gradient(135deg, #6020b4, #6a89cc);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.heroContent {
+  max-width: 500px;
+}
+
+.heroContent h1 {
+  font-size: 48px; 
+  color: #ffffff; 
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;  
+  letter-spacing: 3px;  
+  text-transform: uppercase;  
+  margin: 40px 0; 
+  line-height: 1.2; 
+  background: linear-gradient(45deg, #fff, #1ec9c3); 
+  -webkit-background-clip: text; 
+  -webkit-text-fill-color: transparent; 
+
+}
+
+.heroContent p {
+  font-size: 20px;
+  color: #ffffff;  
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400; 
+  line-height: 1.6;  
+  letter-spacing: 1.2px;  
+  margin: 20px 0;  
+  padding: 10px 15px; 
+  border-left: 5px solid #4f84ca;
+  background: rgba(0, 0, 0, 0.2); 
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3); 
+  transition: all 0.3s ease-in-out; 
+}
+
+
+.startChattingBtn {
+  background-color: #b29c39; 
+  color: #6b29d6;  
+  padding: 12px 25px;  
+  border: none; 
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;  
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+  text-transform: uppercase; 
+  font-family: 'Roboto', sans-serif;  
+  font-weight: bold; 
+}
+
+.startChattingBtn:hover {
+  background-color: #16a0c6; 
+  transform: scale(1.1);  
+}
+.startChattingBtn:active {
+  transform: scale(1.05);  
+  background-color: #3aa3d3; 
+}
+
+
+.heroImage {
+  max-width: 50%;
+  height: auto;
+  border-radius: 20px;
+}
+
+.mainContainer {
+  display: flex;
+}
+
+.chatContainer {
+  flex: 1;
+  padding: 20px;
+  background: linear-gradient(135deg, #fff, #108ab3);
+}
+
+.sidebar,
+.rightbar {
+  width: 200px;
+  background-color: #ecf0f1;
+}
+
+.sidebar {
+  border-right: 1px solid #bdc3c7;
+}
+
+.rightbar {
+  border-left: 1px solid #bdc3c7;
+}

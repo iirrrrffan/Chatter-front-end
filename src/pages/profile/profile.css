@@ -146,3 +146,57 @@
   }
   
   
+/* Breakpoints for responsiveness */
+@media (max-width: 768px) {
+    .profile {
+      flex-direction: column; /* Stack sidebar and main content */
+    }
+  
+    .profileRight {
+      flex: 1; /* Make the main content take the full width */
+    }
+  
+    .profileCover {
+      height: 200px; /* Adjust height for smaller screens */
+    }
+  
+    .profileUserImg {
+      width: 150px; /* Reduce size for smaller screens */
+      height: 150px;
+      top: 120px; /* Adjust position */
+    }
+  
+    .profileInfo {
+      margin-left: 20px; /* Less margin for smaller screens */
+    }
+  
+    .btn {
+      margin-left: 0; /* Center the button */
+      bottom: 20px; /* Adjust position */
+    }
+  
+    .profileRightBottom {
+      flex-direction: column; /* Stack posts vertically */
+    }
+  
+    .postCard1 {
+      width: 100%; /* Make posts full-width */
+      margin-bottom: 20px; /* Add spacing between posts */
+    }
+  }
+  
+  @media (min-width: 769px) {
+    /* Custom styles for larger screens */
+    .profile {
+      flex-direction: row; /* Keep sidebar and main content side by side */
+    }
+  
+    .profileRightBottom {
+      display: flex; /* Default horizontal layout */
+    }
+  
+    .postCard1 {
+      width: 290px; /* Default card width */
+    }
+  }
+  

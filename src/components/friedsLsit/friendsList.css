@@ -18,11 +18,13 @@
 
 .friendList:hover {
   background: linear-gradient(to right, #4753de, #72b7df);
+  
 }
 
 .friendLink {
   text-decoration: none;
   color: inherit;
+  
 }
 
 .friendListImg {

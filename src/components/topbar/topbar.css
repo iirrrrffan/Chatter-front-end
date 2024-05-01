@@ -1,7 +1,7 @@
 .topbarContainer {
   height: 50px;
   width: 100%;
-  background-color: #1877f2;
+  background: linear-gradient(135deg, #108ab3, #fff); 
   display: flex;
   align-items: center;
   position: sticky;

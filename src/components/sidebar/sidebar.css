@@ -4,6 +4,7 @@
   overflow-y: auto; /* Changed to auto */
   position: sticky;
   top: 50px;
+  background: linear-gradient(135deg, #108ab3, #fff); 
 }
 
 /* Scrollbar styles */
