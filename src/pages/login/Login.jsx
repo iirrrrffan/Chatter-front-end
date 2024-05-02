@@ -27,7 +27,7 @@ const Login = () => {
       }
       console.log(data)
   
-      const response = await axios.post('http://localhost:3006/api/auth/login',data)
+      const response = await axios.post('https://api.chatterchating.site/api/auth/login',data)
       console.log(response)
       if(response.status===200){
         localStorage.setItem("user",JSON.stringify(response.data))

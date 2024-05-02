@@ -22,7 +22,7 @@ const Regi = () => {
     }
 
     try {
-      const response = await axios.post('http://localhost:3006/api/auth/register', {
+      const response = await axios.post('https://api.chatterchating.site/api/auth/register', {
         username: inputUsername,
         email: inputEmail,
         password: inputPassword
