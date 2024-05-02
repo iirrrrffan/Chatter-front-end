@@ -13,7 +13,7 @@ useEffect(() => {
   const friendId = conversation.members.find(m => m !== currentUser._id); 
   const getUser = async () => {
     try {
-      const res = await axios.get(`http://localhost:3006/api/users/userbyId/${friendId}`); 
+      const res = await axios.get(`https://api.chatterchating.site/api/users/userbyId/${friendId}`); 
       setUser(res.data.user)
     } catch (error) {
       console.log(error);

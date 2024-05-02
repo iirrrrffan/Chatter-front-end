@@ -22,7 +22,7 @@ const FriendList = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get('http://localhost:3006/api/users/allusers');
+        const res = await axios.get('https://api.chatterchating.site/api/users/allusers');
         setUsers(res.data.users);
       } catch (error) {
         console.error('Error fetching users:', error);

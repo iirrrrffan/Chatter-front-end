@@ -18,7 +18,7 @@ const FollowingList = () => {
     const fetchFollowingList = async () => {
       try {
         if (user?._id) {
-          const res = await axios.get(`http://localhost:3006/api/auth/followersList/${user._id}`);
+          const res = await axios.get(`https://api.chatterchating.site/api/auth/followersList/${user._id}`);
           console.log(res.data, "Following list fetched");
           setFollowingList(res.data.followersList); 
         }

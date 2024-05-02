@@ -53,7 +53,7 @@ useEffect(()=>{
 useEffect(()=>{
   const getConversaton = async ()=>{
     try{
-     const res = await axios.get(`http://localhost:3006/api/conversation/${user._id}`)
+     const res = await axios.get(`https://api.chatterchating.site/api/conversation/${user._id}`)
      setConversation(res.data)
      
     }catch(error){
@@ -79,7 +79,7 @@ useEffect(()=>{
 useEffect(() => {
   const getMessages = async () => {
     try {
-      const res = await axios.get(`http://localhost:3006/api/messages/${currentChat._id}`);
+      const res = await axios.get(`https://api.chatterchating.site/api/messages/${currentChat._id}`);
       setMessages(res.data);
     } catch (error) {
       console.log(error);
@@ -106,7 +106,7 @@ const reciverid = currentChat.members.find(member=>member !==user._id)
     text: newMessage,
   })
   try{
- const res = await axios.post("http://localhost:3006/api/messages",message)
+ const res = await axios.post("https://api.chatterchating.site/api/messages",message)
  setMessages([...messages,res.data]);
 setNewMessage("");
   }catch(error){

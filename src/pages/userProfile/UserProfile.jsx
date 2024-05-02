@@ -26,7 +26,7 @@ const UserProfile = () => {
     const logUserId = userData ? userData._id : null;
     console.log(logUserId,'sdfghjkl')
     try {
-      const res = await axios.get(`http://localhost:3006/api/users/userbyId/${userId}`)
+      const res = await axios.get(`https://api.chatterchating.site/api/users/userbyId/${userId}`)
       console.log(res,'dsfghjk')
       setIsFollowing(res.data.user.followers.includes(logUserId));
       setState(res.data.user)
@@ -45,12 +45,12 @@ const UserProfile = () => {
       
       if (logUserId) {
         if (isFollowing) {
-          await axios.put(`http://localhost:3006/api/users/${logUserId}/unfollow`, {
+          await axios.put(`https://api.chatterchating.site/api/users/${logUserId}/unfollow`, {
             userId: userId, 
           });
           setIsFollowing(false);
         } else {
-          await axios.put(`http://localhost:3006/api/users/${logUserId}/follow`, {
+          await axios.put(`https://api.chatterchating.site/api/users/${logUserId}/follow`, {
             userId: userId, 
           });
           setIsFollowing(true); 
@@ -68,7 +68,7 @@ const UserProfile = () => {
         senderId: senderId,
         receiverId:receiverId,
       }
-      const res = await axios.post("http://localhost:3006/api/conversation",data)
+      const res = await axios.post("https://api.chatterchating.site/api/conversation",data)
       console.log(res);
       navigate("/messanger")
     } catch (error) {
@@ -84,7 +84,7 @@ const UserProfile = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await axios.get(`http://localhost:3006/api/posts/profile/${userId}`);
+        const response = await axios.get(`https://api.chatterchating.site/api/posts/profile/${userId}`);
         console.log(response);
         setPosts(response.data);
       } catch (err) {

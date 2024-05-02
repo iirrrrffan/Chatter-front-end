@@ -31,7 +31,7 @@ const Sidebar = () => {
   const fetchProfile = async () => {
     try {
       if (user?._id) { 
-        const response = await axios.get(`http://localhost:3006/api/users/${user._id}`);
+        const response = await axios.get(`https://api.chatterchating.site/api/users/${user._id}`);
        console.log(response);
        setUser(response)
         if (response.status === 200) {

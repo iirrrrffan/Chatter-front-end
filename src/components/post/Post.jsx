@@ -13,7 +13,7 @@ const navigate = useNavigate();
   useEffect(() => {
     const fetchPost = async () => {
       try {
-        const response = await axios.get(`http://localhost:3006/api/posts/${id}`);
+        const response = await axios.get(`https://api.chatterchating.site/api/posts/${id}`);
         setPost(response.data);
       } catch (error) {
         console.error("Error fetching post:", error);

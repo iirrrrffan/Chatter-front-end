@@ -18,7 +18,7 @@ const FollowersList = () => {
         const fetchList = async()=>{
           if (user) {
             try {
-                const res = await axios.get(`http://localhost:3006/api/auth/followingList/${user._id}`)
+                const res = await axios.get(`https://api.chatterchating.site/api/auth/followingList/${user._id}`)
                 setFollowersList(res.data.followingList)
             } catch (error) {
                 console.log(error,"fetchingList error");

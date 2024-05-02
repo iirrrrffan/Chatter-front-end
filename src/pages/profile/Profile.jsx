@@ -25,16 +25,16 @@ const Profile = () => {
 
   useEffect(() => {
     if (user) {
-      axios.get(`http://localhost:3006/api/posts/profile/${user._id}`).then((res) => {
+      axios.get(`https://api.chatterchating.site/api/posts/profile/${user._id}`).then((res) => {
         setPosts(res.data);
         setLoading(false);
       });
 
-      axios.get(`http://localhost:3006/api/auth/followingList/${user._id}`).then((res) => {
+      axios.get(`https://api.chatterchating.site/api/auth/followingList/${user._id}`).then((res) => {
         setFollowingList(res.data.followingList);
       });
 
-      axios.get(`http://localhost:3006/api/auth/followersList/${user._id}`).then((res) => {
+      axios.get(`https://api.chatterchating.site/api/auth/followersList/${user._id}`).then((res) => {
         setFollowersList(res.data.followersList);
       });
     }
@@ -42,7 +42,7 @@ const Profile = () => {
 
   const handleDeletePost = async (postId) => {
     try {
-      const response = await axios.delete(`http://localhost:3006/api/posts/${postId}`, {
+      const response = await axios.delete(`https://api.chatterchating.site/api/posts/${postId}`, {
         data: { userId: user._id },
       });
 

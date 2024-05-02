@@ -25,7 +25,7 @@ const EditProfile = () => {
 
     const fetchProfile = async () => {
       try {
-        const response = await axios.get(`http://localhost:3006/api/users/${user._id}`);
+        const response = await axios.get(`https://api.chatterchating.site/api/users/${user._id}`);
         if (response.status === 200) {
           const userData = response.data.user;
           setUsername(userData.username);
@@ -68,7 +68,7 @@ console.log(coverPicture,profilePic,'cover pic ');
       formData.append("profilePicture", profilePic);
       formData.append("coverPicture", coverPicture);
 
-      const response = await axios.put(`http://localhost:3006/api/users/${userId}`, formData);
+      const response = await axios.put(`https://api.chatterchating.site/api/users/${userId}`, formData);
       if (response.status === 200) {
         localStorage.setItem("user", JSON.stringify(response.data.user));
         navigate('/profile')

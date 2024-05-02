@@ -38,7 +38,7 @@ const navigate = useNavigate()
         formData.append("image", image);
         console.log(formData)
         try {
-          const response = await fetch("http://localhost:3006/api/posts/addPost", {
+          const response = await fetch("https://api.chatterchating.site/api/posts/addPost", {
             method: "POST",
             body: formData,
           });
