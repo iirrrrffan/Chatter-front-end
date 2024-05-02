@@ -54,8 +54,8 @@
 .searchContainer {
   display: flex;
   align-items: center;
-  margin-left: 50px;
-  margin-top: 50px;
+  margin-left: 900px;
+  margin-top: 30px;
   position: fixed;
   top: 20px;
   left: 20px; 
@@ -99,29 +99,43 @@
   justify-content: space-between;
   margin-top: 20px;
   padding: 10px;
+  background: linear-gradient(135deg, #108ab3, #fff); 
+  border: 1px solid #ddd; 
 }
 
 .paginationContainer button {
-  padding: 10px;
-  border: 1px solid #007bff;
-  background-color: #ffffff;
-  color: #007bff;
-  cursor: pointer;
-  border-radius: 25px;
-  transition: background-color 0.3s ease;
+  padding: 10px 20px; 
+  border: 1px solid #007bff; 
+  background: rgb(156, 156, 27);
+  color: #020609; 
+  cursor: pointer; 
+  border-radius: 10px; 
+  transition: background-color 0.3s ease; 
 }
 
 .paginationContainer button:hover {
-  background-color: #f0f0f0;
+  background: linear-gradient(135deg, #108ab3, #fff); 
+  color: #007bff; 
 }
 
+
 .paginationContainer button:disabled {
-  cursor: not-allowed;
+  cursor: not-allowed; 
   color: #999999;
-  border: 1px solid #999999;
+  background: #e0e0e0; 
+  border: 1px solid #999999; 
 }
+
 
 .paginationContainer span {
   font-size: 1.2rem;
   color: #333333;
+  font-weight: bold; 
 }
+
+
+.paginationContainer {
+  margin-top: 700px; 
+  margin-left: -340px; 
+}
+
