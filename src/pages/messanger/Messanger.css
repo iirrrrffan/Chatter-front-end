@@ -1,6 +1,7 @@
 .messenger {
-    height: calc(100vh - 70px);
+    height: calc(100vh - 60px);
     display: flex;
+    background: linear-gradient(135deg, #fff, #108ab3); 
   }
   
   .chatMenu {
@@ -36,6 +37,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    width: 680px;
   }
   
   .chatMessageInput {

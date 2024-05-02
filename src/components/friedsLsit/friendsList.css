@@ -11,8 +11,8 @@
   transition: background-color 0.3s ease;
   border-radius: 12px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  background-color: #ffffff;
-  width: 500px; 
+  background: linear-gradient(135deg, #108ab3, #fff); 
+  width: 400px; 
   margin-left: 250px;
 }
 

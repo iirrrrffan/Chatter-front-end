@@ -3,6 +3,7 @@ import Sidebar from '../../components/sidebar/Sidebar';
 import './userProfile.css';
 import { Navigate, useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
+import Topbar from '../../components/topbar/Topbar';
 
 const UserProfile = () => {
   const [state,setState]= useState()
@@ -103,7 +104,7 @@ const UserProfile = () => {
   
   return (
     <>
-      {/* <Topbar /> */}
+      <Topbar />
       <div className="userprofile">
         <Sidebar />
         <div className="userprofileRight">

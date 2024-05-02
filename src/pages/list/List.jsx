@@ -6,7 +6,7 @@ import "./list.css"
 
 const List = () => {
   return (
-    <div>
+    <div className='mainlist'>
       <Topbar/>
         <FriendList/>
     </div>
