@@ -15,7 +15,6 @@ const Message = ({Message,own}) => {
     </div>
     <div className="messageBottom">{format(Message.createdAt)}</div> 
   </div>
-
   )
 }
 
