@@ -1,5 +1,5 @@
 .messenger {
-    height: calc(100vh - 60px);
+    height: calc(110vh - 60px);
     display: flex;
     background: linear-gradient(135deg, #fff, #108ab3); 
   }
