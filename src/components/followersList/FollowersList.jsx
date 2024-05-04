@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Sidebar from '../sidebar/Sidebar'
 import axios from 'axios';
+import Topbar from '../../components/topbar/Topbar';
 
 
 
@@ -31,8 +32,10 @@ const FollowersList = () => {
   return (
     <div>
 <>
+<Topbar/>
       <div className="mainF">
         <Sidebar />
+        
         <div>
             {followersList.map((followers)=>(
             <div key={followers._id} 

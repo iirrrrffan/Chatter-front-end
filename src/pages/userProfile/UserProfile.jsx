@@ -139,7 +139,7 @@ const UserProfile = () => {
               )}
             </div>
           </div>
-          <div className="userprofileRightBottom">
+          <div className="userprofileRightBottom1">
             {posts.map((post)=>(
           <div className="postCard2">
       <img src={post?.image} alt='post' onClick={()=>navigate(`/post/${post._id}`)}/>

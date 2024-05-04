@@ -33,8 +33,8 @@ const Home = () => {
       </div>
       <div className="mainContainer">
         <Sidebar />
-        <div className="chatContainer">
-        </div>
+        {/* <div className="chatContainer">
+        </div> */}
         <Rightbar />
       </div>
     </div>

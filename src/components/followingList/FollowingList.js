@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Sidebar from '../sidebar/Sidebar';
 import axios from 'axios';
 import './followingList.css';
+import Topbar from '../../components/topbar/Topbar';
 
 const FollowingList = () => {
   const [user, setUser] = useState(null);
@@ -32,6 +33,7 @@ const FollowingList = () => {
 
   return (
     <div>
+        <Topbar/>
       <div className="mainF">
         <Sidebar />
         <div>

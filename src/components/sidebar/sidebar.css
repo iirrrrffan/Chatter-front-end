@@ -4,9 +4,8 @@
   overflow-y: auto;
   position: sticky;
   top: 50px;
-  background: linear-gradient(135deg, #108ab3, #fff); 
+  background: linear-gradient(175deg, #108ab3, #fff); 
 }
-
 
 .sidebar::-webkit-scrollbar {
   width: 5px;

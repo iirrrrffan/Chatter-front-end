@@ -1,7 +1,7 @@
 
 .rightbar {
   flex: 3;
-  background: linear-gradient(135deg, #108ab3, #fff); 
+  background: linear-gradient(135deg, #fff, #108ab3); 
   border-left: 1px solid #d3e3f0;
 }
 

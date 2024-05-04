@@ -1,5 +1,6 @@
 .mainF {
     display: flex;
+    background: linear-gradient(135deg, #fff, #108ab3); 
   }
   
   .friendListF {

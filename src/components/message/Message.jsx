@@ -8,7 +8,7 @@ const Message = ({Message,own}) => {
     <div className="messageTop">
       <img
         className="messageImg"
-        src="https://i.pinimg.com/564x/6a/fc/5c/6afc5c43a5050054d7482202e3b75239.jpg"
+        src='https://i.pinimg.com/474x/4a/88/91/4a8891e05c016137daca400e23175f58.jpg'
         alt=""
       />
       <p className="messageText">{Message.text} </p>
