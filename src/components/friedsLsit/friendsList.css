@@ -13,7 +13,7 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   background: linear-gradient(135deg, #108ab3, #fff); 
   width: 400px; 
-  margin-left: 250px;
+  margin-left: 290px;
 }
 
 .friendList:hover {
@@ -76,7 +76,7 @@
 }
 
 .searchContainer input[type="text"]::placeholder {
-  color: #999;
+  color: #1e6eb4;
 }
 
 .searchContainer input[type="text"]:focus {
